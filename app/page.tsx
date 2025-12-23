@@ -1,102 +1,306 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { useState } from "react";
 import Image from "next/image";
 
-export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+export default function LandingPage() {
+  const [isMuted, setIsMuted] = useState(true);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  const handleUnmute = () => {
+    setIsMuted(false);
+  };
+
+  const fadeInUp = {
+    initial: { opacity: 0, y: 40 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
+  };
+
+  const staggerContainer = {
+    animate: {
+      transition: {
+        staggerChildren: 0.12,
+      },
+    },
+  };
+
+  const pulseAnimation = {
+    scale: [1, 1.02, 1],
+  };
+
+  const pulseTransition = {
+    duration: 2,
+    repeat: Number.POSITIVE_INFINITY,
+    ease: "easeInOut" as const,
+  };
+
+  return (
+    <div className="min-h-screen bg-[#101418]">
+      <header className="container mx-auto px-4 py-4 md:py-6">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <Image
+            src="/images/axlogo.png"
+            alt="AX Logo"
+            width={60}
+            height={60}
+            className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16"
+          />
+        </motion.div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="container mx-auto px-4 py-8 md:py-12 lg:py-16">
+        <motion.div
+          variants={staggerContainer}
+          initial="initial"
+          animate="animate"
+          className="max-w-6xl mx-auto text-center space-y-6"
+        >
+          <motion.h1
+            variants={fadeInUp}
+            className="text-xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-balance leading-tight text-white"
           >
+            Médico Psiquiatra ensina método para{" "}
+            <span className="text-[#7CEB63]">corrigir falha no cérebro</span>{" "}
+            que causa a procrastinação
+          </motion.h1>
+
+          <motion.h2
+            variants={fadeInUp}
+            className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-white"
+          >
+            Se torne até{" "}
+            <span className="text-[#7CEB63]">16x mais produtivo</span> em 30
+            dias
+          </motion.h2>
+        </motion.div>
+      </section>
+
+      {/* Video Section */}
+      <section className="container mx-auto px-4 py-6 md:py-10">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="max-w-4xl mx-auto"
+        >
+          <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl bg-black border-2 border-gray-700 group">
+            <iframe
+              key={isMuted ? "muted" : "unmuted"}
+              id="youtube-player"
+              width="100%"
+              height="100%"
+              src={`https://www.youtube.com/embed/CJSc6VlbqnM?autoplay=1${
+                isMuted ? "&mute=1" : ""
+              }&enablejsapi=1`}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+              className="w-full h-full"
+            ></iframe>
+
+            {isMuted && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+                onClick={handleUnmute}
+                className="absolute inset-0 flex items-center justify-center bg-black/40 cursor-pointer hover:bg-black/30 transition-colors rounded-lg"
+              >
+                <motion.div
+                  initial={{ scale: 0.9, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ delay: 0.2, duration: 0.4 }}
+                  whileHover={{ scale: 1.05 }}
+                  className="bg-white rounded-lg px-6 md:px-10 py-4 md:py-6 text-center shadow-lg"
+                >
+                  <p className="text-gray-800 font-semibold text-sm md:text-base">
+                    🔇 Vídeo está mutado
+                  </p>
+                  <p className="text-gray-600 text-xs md:text-sm mt-2">
+                    Clique aqui para desmutar
+                  </p>
+                </motion.div>
+              </motion.div>
+            )}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mt-8 text-center"
+          >
+            <motion.button
+              animate={pulseAnimation}
+              transition={pulseTransition}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+              className="bg-[#7CEB63] hover:bg-[#6ad854] text-[#101418] font-bold text-base md:text-lg lg:text-xl px-8 md:px-12 py-4 md:py-5 rounded-lg shadow-lg shadow-[#7CEB63]/30 transition-colors cursor-pointer"
+            >
+              QUERO COMEÇAR AGORA
+            </motion.button>
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* Professor Section - Removed companies section, made image rectangular and larger */}
+      <section className="container mx-auto px-4 py-12 md:py-16 lg:py-20">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="max-w-6xl mx-auto"
+        >
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-xl md:text-2xl lg:text-3xl font-bold text-white text-center mb-8 md:mb-12"
+          >
+            Apresentamos Seu Professor
+          </motion.h2>
+
+          <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+            {/* Photo - Made rectangular and larger */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="shrink-0"
+            >
+              <div className="relative">
+                <div className="w-64 h-80 md:w-72 md:h-96 lg:w-80 lg:h-112 rounded-xl overflow-hidden border-4 border-[#7CEB63] shadow-xl shadow-[#7CEB63]/20">
+                  <Image
+                    src="/images/Alexandre.jpg"
+                    alt="Dr. Frederico Porto"
+                    width={320}
+                    height={448}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Info */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="text-center md:text-left"
+            >
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2">
+                Alexandre Lourenço
+              </h3>
+              <p className="text-gray-400 text-sm md:text-base mb-4">
+                Psiquiatra RQE n.8223 | Nutrólogo RQE n.13017
+              </p>
+              <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-4">
+                Apaixonado pela leitura, tendo devorado mais de 4.000 livros ao
+                longo de sua vida, Dr. Frederico Porto é um renomado médico
+                psiquiatra e nutrólogo.
+              </p>
+              <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-4">
+                Casado com Ione, pai dedicado de Amanda e Vítor, ele encontra
+                tempo para equilibrar sua vida profissional e familiar com
+                maestria.
+              </p>
+              <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+                Ao longo de seus mais de{" "}
+                <span className="text-[#7CEB63] font-semibold">
+                  26 anos de carreira
+                </span>
+                , impactou a vida de mais de{" "}
+                <span className="text-[#7CEB63] font-semibold">
+                  394 mil pessoas
+                </span>
+                , compartilhando sua sabedoria e expertise em saúde mental e
+                nutrição.
+              </p>
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mt-10 md:mt-12 text-center"
+          >
+            <motion.button
+              animate={pulseAnimation}
+              transition={pulseTransition}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+              className="bg-[#7CEB63] hover:bg-[#6ad854] text-[#101418] font-bold text-base md:text-lg lg:text-xl px-8 md:px-12 py-4 md:py-5 rounded-lg shadow-lg shadow-[#7CEB63]/30 transition-colors cursor-pointer"
+            >
+              GARANTIR MINHA VAGA
+            </motion.button>
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* Final Text Section */}
+      <section className="container mx-auto px-4 py-8 md:py-12">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="max-w-3xl mx-auto text-center"
+        >
+          <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+            Sob a orientação de Dr. Frederico Porto, você encontrará uma
+            abordagem holística e cuidadosa para melhorar a sua saúde física e
+            mental, com foco no equilíbrio de todos os aspectos da vida.
+          </p>
+        </motion.div>
+      </section>
+
+      {/* Footer */}
+      <footer className="container mx-auto px-4 py-8 md:py-12 border-t border-gray-800">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col md:flex-row items-center md:items-start justify-between gap-6"
+        >
+          <div className="flex items-center">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="/images/axlogo.png"
+              alt="AX Logo"
+              width={48}
+              height={48}
+              className="w-10 h-10 md:w-12 md:h-12 opacity-70"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+          </div>
+
+          <div className="text-center md:text-right">
+            <p className="text-gray-500 text-xs md:text-sm">
+              Todos os direitos reservados © 2023
+            </p>
+            <p className="text-gray-500 text-xs md:text-sm mt-1">
+              Integração Humana e Treinamento Eirelli
+            </p>
+            <p className="text-gray-500 text-xs mt-1">
+              CNPJ 07.251.906/0001-28
+            </p>
+          </div>
+        </motion.div>
       </footer>
     </div>
   );
