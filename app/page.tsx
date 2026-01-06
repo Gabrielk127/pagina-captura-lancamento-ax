@@ -65,18 +65,18 @@ export default function LandingPage() {
             variants={fadeInUp}
             className="text-xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-balance leading-tight text-white"
           >
-            Médico Psiquiatra ensina método para{" "}
-            <span className="text-[#7CEB63]">corrigir falha no cérebro</span>{" "}
-            que causa a procrastinação
+            Tenha <span className="text-[#7CEB63]">clareza</span> sobre seus
+            números e descubra como antecipar a conquista da sua{" "}
+            <span className="text-[#7CEB63]">liberdade</span> financeira e
+            consolidação patrimonial.
           </motion.h1>
 
           <motion.h2
             variants={fadeInUp}
             className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-white"
           >
-            Se torne até{" "}
-            <span className="text-[#7CEB63]">16x mais produtivo</span> em 30
-            dias
+            O <span className="text-[#7CEB63]">próximo nível</span> da sua vida
+            financeira.
           </motion.h2>
         </motion.div>
       </section>
@@ -169,7 +169,7 @@ export default function LandingPage() {
             transition={{ duration: 0.6 }}
             className="text-xl md:text-2xl lg:text-3xl font-bold text-white text-center mb-8 md:mb-12"
           >
-            Apresentamos Seu Professor
+            Conheça Quem Vai Te Guiar
           </motion.h2>
 
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
@@ -206,29 +206,37 @@ export default function LandingPage() {
                 Alexandre Lourenço
               </h3>
               <p className="text-gray-400 text-sm md:text-base mb-4">
-                Psiquiatra RQE n.8223 | Nutrólogo RQE n.13017
+                Especialista em Investimentos e Planejamento Patrimonial
               </p>
               <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-4">
-                Apaixonado pela leitura, tendo devorado mais de 4.000 livros ao
-                longo de sua vida, Dr. Frederico Porto é um renomado médico
-                psiquiatra e nutrólogo.
+                Acredito que investir vai muito além de buscar rentabilidade:
+                trata-se de planejar o futuro com{" "}
+                <span className="text-[#7CEB63] font-semibold">
+                  inteligência
+                </span>
+                . Minha missão é transformar recursos em{" "}
+                <span className="text-[#7CEB63] font-semibold">
+                  patrimônio real
+                </span>
+                , gerando tranquilidade financeira por meio de decisões
+                consistentes.
               </p>
               <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-4">
-                Casado com Ione, pai dedicado de Amanda e Vítor, ele encontra
-                tempo para equilibrar sua vida profissional e familiar com
-                maestria.
+                Com uma atuação que combina experiência prática e visão
+                estratégica, conecto investimentos financeiros, mercado
+                imobiliário e consórcios como ferramentas de alavancagem.
               </p>
               <p className="text-gray-300 text-sm md:text-base leading-relaxed">
-                Ao longo de seus mais de{" "}
+                Sou movido pelo propósito de gerar prosperidade sustentável,
+                ajudando investidores e empresários a evoluírem financeiramente.
+                Meu trabalho une{" "}
+                <span className="text-[#7CEB63] font-semibold">disciplina</span>{" "}
+                e{" "}
                 <span className="text-[#7CEB63] font-semibold">
-                  26 anos de carreira
-                </span>
-                , impactou a vida de mais de{" "}
-                <span className="text-[#7CEB63] font-semibold">
-                  394 mil pessoas
-                </span>
-                , compartilhando sua sabedoria e expertise em saúde mental e
-                nutrição.
+                  inteligência
+                </span>{" "}
+                para proteger e potencializar seu capital com segurança e
+                previsibilidade.
               </p>
             </motion.div>
           </div>
@@ -263,9 +271,9 @@ export default function LandingPage() {
           className="max-w-3xl mx-auto text-center"
         >
           <p className="text-gray-300 text-sm md:text-base leading-relaxed">
-            Sob a orientação de Dr. Frederico Porto, você encontrará uma
-            abordagem holística e cuidadosa para melhorar a sua saúde física e
-            mental, com foco no equilíbrio de todos os aspectos da vida.
+            Sob minha orientação, você encontrará uma abordagem estratégica e
+            completa para potencializar seu patrimônio, com foco no equilíbrio
+            entre rentabilidade, segurança e prosperidade sustentável.
           </p>
         </motion.div>
       </section>
@@ -291,14 +299,15 @@ export default function LandingPage() {
 
           <div className="text-center md:text-right">
             <p className="text-gray-500 text-xs md:text-sm">
-              Todos os direitos reservados © 2023
+              © 2026 Calculadora de Crescimento Patrimonial. Todos os direitos
+              reservados.
             </p>
-            <p className="text-gray-500 text-xs md:text-sm mt-1">
+            {/* <p className="text-gray-500 text-xs md:text-sm mt-1">
               Integração Humana e Treinamento Eirelli
             </p>
             <p className="text-gray-500 text-xs mt-1">
               CNPJ 07.251.906/0001-28
-            </p>
+            </p> */}
           </div>
         </motion.div>
       </footer>
