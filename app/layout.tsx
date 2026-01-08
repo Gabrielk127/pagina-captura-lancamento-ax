@@ -1,16 +1,15 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
-import "./globals.css"
+import type React from "react";
+import type { Metadata } from "next";
+import { Public_Sans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import "./globals.css";
 
-const _geist = Geist({ subsets: ["latin"] })
-const _geistMono = Geist_Mono({ subsets: ["latin"] })
+const publicSans = Public_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Neuro Produtividade - Dr. Frederico Porto",
+  title: "AX - Clareza Financeira e Liberdade Patrimonial",
   description:
-    "Médico Psiquiatra ensina método para corrigir falha no cérebro que causa a procrastinação. Se torne até 16x mais produtivo em 30 dias.",
+    "Domine seus números e conquiste sua liberdade financeira e patrimonial com o próximo nível da sua vida financeira.",
   generator: "v0.app",
   icons: {
     icon: [
@@ -29,19 +28,19 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-icon.png",
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`font-sans antialiased`}>
+      <body className={`${publicSans.className} font-sans antialiased`}>
         {children}
         <Analytics />
       </body>
     </html>
-  )
+  );
 }
