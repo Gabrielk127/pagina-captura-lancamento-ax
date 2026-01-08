@@ -66,9 +66,9 @@ export default function LandingPage() {
             className="text-xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-balance leading-tight text-white"
           >
             Tenha <span className="text-[#7CEB63]">clareza</span> sobre seus
-            números e descubra como antecipar a conquista da sua{" "}
+            números e conquiste sua{" "}
             <span className="text-[#7CEB63]">liberdade</span> financeira e
-            consolidação patrimonial.
+            patrimonial.
           </motion.h1>
 
           <motion.h2
@@ -206,15 +206,12 @@ export default function LandingPage() {
                 Alexandre Lourenço
               </h3>
               <p className="text-gray-400 text-sm md:text-base mb-4">
-                Especialista em Investimentos e Planejamento Patrimonial
+                Estrategista Patrimonial
               </p>
               <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-4">
-                Acredito que investir vai muito além de buscar rentabilidade:
-                trata-se de planejar o futuro com{" "}
-                <span className="text-[#7CEB63] font-semibold">
-                  inteligência
-                </span>
-                . Minha missão é transformar recursos em{" "}
+                Sei que investir vai muito além de buscar rentabilidade:
+                trata-se de planejar o futuro com inteligência. Minha missão é
+                transformar recursos em{" "}
                 <span className="text-[#7CEB63] font-semibold">
                   patrimônio real
                 </span>
@@ -222,21 +219,21 @@ export default function LandingPage() {
                 consistentes.
               </p>
               <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-4">
-                Com uma atuação que combina experiência prática e visão
-                estratégica, conecto investimentos financeiros, mercado
-                imobiliário e consórcios como ferramentas de alavancagem.
+                Com atuação voltada à construção de valor financeiro de longo
+                prazo, uno estratégia, segurança e previsibilidade.
               </p>
               <p className="text-gray-300 text-sm md:text-base leading-relaxed">
-                Sou movido pelo propósito de gerar prosperidade sustentável,
-                ajudando investidores e empresários a evoluírem financeiramente.
-                Meu trabalho une{" "}
-                <span className="text-[#7CEB63] font-semibold">disciplina</span>{" "}
-                e{" "}
+                Ao longo de seus mais de{" "}
                 <span className="text-[#7CEB63] font-semibold">
-                  inteligência
-                </span>{" "}
-                para proteger e potencializar seu capital com segurança e
-                previsibilidade.
+                  12 anos de carreira
+                </span>
+                , tenho compartilhando conhecimento e expertise em estratégia
+                Patrimonial. Movido pelo propósito de{" "}
+                <span className="text-[#7CEB63] font-semibold">
+                  gerar prosperidade sustentável
+                </span>
+                , ajudando investidores e empresários a evoluírem
+                financeiramente.
               </p>
             </motion.div>
           </div>
