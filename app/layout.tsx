@@ -7,9 +7,9 @@ import "./globals.css";
 const publicSans = Public_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "AX - Clareza Financeira e Liberdade Patrimonial",
+  title: "AX Mercado Real",
   description:
-    "Domine seus números e conquiste sua liberdade financeira e patrimonial com o próximo nível da sua vida financeira.",
+    "Descubra quanto seu patrimônio pode crescer com a estratégia inteligente.",
   generator: "v0.app",
   icons: {
     icon: [

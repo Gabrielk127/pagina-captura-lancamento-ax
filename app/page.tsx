@@ -96,7 +96,7 @@ export default function LandingPage() {
               id="youtube-player"
               width="100%"
               height="100%"
-              src={`https://www.youtube.com/embed/CJSc6VlbqnM?autoplay=1${
+              src={`https://www.youtube.com/embed/8cKwjJqB5p0?autoplay=1${
                 isMuted ? "&mute=1" : ""
               }&enablejsapi=1`}
               title="YouTube video player"
